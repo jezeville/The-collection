@@ -1,0 +1,162 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+.title {
+  width: 75%;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  background-color: rgba(255, 144, 0, 0.2);
+  box-shadow: 4px 5px 12px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin-top: 15px;
+  justify-content: center;
+}
+.title__img {
+  width: 15%;
+  border-radius: 135px;
+}
+.title__textHeader {
+  width: 75%;
+  margin-left: 45px;
+  margin-top: 25px;
+}
+.title__textHeader__h1 {
+  color: black;
+  font-size: 3em;
+}
+.title__textHeader__p {
+  text-align: justify;
+  color: black;
+}
+.title__textHeader__button {
+  background-color: white;
+  float: right;
+  border: 1px solid black;
+  margin-top: 25px;
+  border-radius: 15px;
+  padding: 5px;
+  font-size: 20px;
+}
+.title__textHeader__button:hover {
+  transform: scale(1.2);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+.flex__card {
+  width: 22%;
+  padding: 25px;
+  box-shadow: 4px 5px 12px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 20px;
+  min-width: 310px;
+  position: relative;
+}
+.flex__card__button {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  top: 5px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+}
+.flex__card__button:hover {
+  transform: scale(1.5);
+}
+.flex__card__img {
+  width: 330px;
+  height: 223px;
+  margin: auto;
+}
+.flex__card__genre {
+  color: white;
+  margin-top: 10px;
+  padding: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+.flex__card__author {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 15px;
+}
+.flex__card__synopsis {
+  text-align: justify;
+}
+
+.backgroundcolor--science {
+  background-color: blue;
+}
+.backgroundcolor--musicale {
+  background-color: red;
+}
+.backgroundcolor--drame {
+  background-color: green;
+}
+.backgroundcolor--crime {
+  background-color: purple;
+}
+.backgroundcolor--heros {
+  background-color: black;
+}
+.backgroundcolor--romance {
+  background-color: darkorange;
+}/*# sourceMappingURL=style.css.map */
