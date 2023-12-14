@@ -26,9 +26,6 @@ textHeader.appendChild(pHeader);
 textHeader.appendChild(sorted);
 
 
-
-
-
 let object = [
     { id : 1 ,Film: "Inception", image: "assets/img/inception-photo-1134542.jpg", Genre: "Science-Fiction", Réalisateur: "Christopher Nolan", Synopsis: "Dom Cobb, un voleur expérimenté, est capable d'entrer dans les rêves des autres pour voler leurs secrets les plus précieux. Il se voit offrir une mission impossible : implanter une idée dans l'esprit d'une personne. Le film explore les concepts complexes de la réalité et de la perception." },
 
@@ -57,14 +54,88 @@ let section = document.querySelector(".flex");
 let suppresion = (e) =>{
     let cardSuppresion = document.getElementById(e.target.classList[1]);
     cardSuppresion.style.display = "none";
+}
 
+let createDiv = (e) => {
+    let valueImg = document.querySelector(".form").childNodes[0].value;
+    let valueGenre = document.querySelector(".form").childNodes[1].value;
+    let valueTitle = document.querySelector(".form").childNodes[2].value;
+    let valueAuthor = document.querySelector(".form").childNodes[3].value;
+    let valueSynopsis = document.querySelector(".form").childNodes[4].value;
+   
+    let tab = { Film : valueTitle, image : valueImg, Genre : valueGenre, Réalisateur : valueAuthor, Synopsis : valueSynopsis};
+
+    card(tab);
+    //newDivButton();
+ 
 }
 
 
+let newDiv = (e) => {
+    e.preventDefault();
+    let divButton = document.querySelector('.buttonTest');
+    divButton.innerHTML = "";
+    let titleButton = document.querySelector('h2');
+    titleButton.innerHTML = "Nouveau film";
 
-for (let elem of object){
-    //creation de la div
-   let div = document.createElement('div');
+    let form = document.createElement('div');
+    form.className = "form";
+
+
+    let inputImg = document.createElement('textarea');
+    inputImg.setAttribute("type", "text");
+    inputImg.setAttribute("placeholder", "Ex : https://facebook.com/becode.jpeg");
+    inputImg.className = "inputButton";
+
+    let inputGenre = document.createElement('textarea');
+    inputGenre.setAttribute("type", "text");
+    inputGenre.setAttribute("placeholder", "Ex : Drame");
+    inputGenre.className = "inputButton";
+
+    let inputh2 = document.createElement('textarea');
+    inputh2.setAttribute("type", "text");
+    inputh2.setAttribute("placeholder", "Ex : Titanic");
+    inputh2.className = "inputButton";
+
+    let inputh3 = document.createElement('textarea');
+    inputh3.setAttribute("type", "text");
+    inputh3.setAttribute("placeholder", "Ex : Steven Spielberg");
+    inputh3.className = "inputButton";
+
+    let inputSynopsis = document.createElement('textarea');
+    inputSynopsis.setAttribute("type", "text");
+    inputSynopsis.setAttribute("placeholder", "Ex : résumé d'un film");
+    inputSynopsis.className = "inputButton";
+
+    let inputConfirm = document.createElement('button');
+    inputConfirm.innerHTML = "Confirmer";
+    inputConfirm.className = "confirmButton";
+
+
+    form.appendChild(inputImg);
+    form.appendChild(inputGenre);
+    form.appendChild(inputh2);
+    form.appendChild(inputh3);
+    form.appendChild(inputSynopsis);
+    form.appendChild(inputConfirm);
+    divButton.append(titleButton);
+    divButton.appendChild(form);
+    inputConfirm.addEventListener('click' , () => createDiv());
+}
+
+
+let newDivButton = (e) => {
+    let nouvelleDiv = document.createElement('div');
+    nouvelleDiv.className = "flex__card";
+
+
+    let derniereDiv = section.lastElementChild;
+
+    section.insertBefore(nouvelleDiv, derniereDiv);
+}
+
+function card (elem){
+    let div = document.createElement('div');
    div.className = 'flex__card';
    div.id = elem.id;
 
@@ -120,6 +191,7 @@ for (let elem of object){
    synopsis.className = 'flex__card__synopsis';
    synopsis.innerHTML = elem.Synopsis;
 
+
    div.appendChild(button);
    div.appendChild(img);
    div.appendChild(p);
@@ -129,13 +201,39 @@ for (let elem of object){
    section.appendChild(div);
 }
 
-let sortedGenre = (e) => {
-    let tab = section.childNodes;
-    for (let elem of tab){
-        if (elem.nodeType === 1){
-            console.log(elem.childNodes[2].classList[1]);
-            
-        }
-    }
+function createmain(object){
+for (let elem of object){
+    card (elem);
 }
-sorted.addEventListener('click', sortedGenre);
+
+//creation du bouton + 
+let plus = document.createElement('div');
+plus.className = "flex__card";
+plus.classList.add("buttonTest");
+let divPlus = document.createElement('div');
+divPlus.className = "flex__card__buttonPlus"
+let buttonPlus = document.createElement('button');
+buttonPlus.innerHTML = "+";
+buttonPlus.className = "buttonPlus__inside";
+
+divPlus.append(buttonPlus);
+plus.append(divPlus);
+section.appendChild(plus);
+buttonPlus.addEventListener('click', newDiv);
+
+}
+
+createmain(object);
+
+function sortedGenre(object){
+    object.sort((a, b) => (a.Genre > b.Genre) ? 1 : ((b.Genre > a.Genre) ? -1 : 0));
+    let tab = section.querySelectorAll('div');
+        for ( let element of tab){
+            element.remove();
+        }
+    createmain(object);
+}
+
+sorted.addEventListener('click', () => sortedGenre(object));
+
+

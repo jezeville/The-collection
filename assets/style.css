@@ -54,7 +54,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .title {
   width: 75%;
   margin: auto;
-  padding: 30px;
+  padding: 10px;
   display: flex;
   background-color: rgba(255, 144, 0, 0.2);
   box-shadow: 4px 5px 12px 1px rgba(0, 0, 0, 0.5);
@@ -65,6 +65,8 @@ p, h1, h2, h3, h4, h5, h6 {
 .title__img {
   width: 15%;
   border-radius: 135px;
+  height: 160px;
+  margin-top: 44px;
 }
 .title__textHeader {
   width: 75%;
@@ -111,8 +113,8 @@ p, h1, h2, h3, h4, h5, h6 {
   position: absolute;
   color: red;
   font-size: 20px;
-  top: 5px;
-  right: 10px;
+  top: 1px;
+  right: 1px;
   border: none;
   background-color: transparent;
 }
@@ -140,6 +142,31 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 .flex__card__synopsis {
   text-align: justify;
+}
+.flex__card__buttonPlus {
+  text-align: center;
+}
+.flex__card__buttonPlus .buttonPlus__inside {
+  background-color: transparent;
+  border: none;
+  color: grey;
+  font-size: 80px;
+  margin-top: 180px;
+}
+
+.inputButton {
+  border: 1px solid rgba(255, 144, 0, 0.2);
+  border-radius: 15px;
+  height: 35px;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.confirmButton {
+  border: none;
+  background-color: rgba(255, 144, 0, 0.2);
+  border-radius: 15px;
+  width: 100%;
 }
 
 .backgroundcolor--science {
