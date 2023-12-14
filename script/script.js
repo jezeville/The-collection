@@ -227,6 +227,8 @@ createmain(object);
 
 function sortedGenre(object){
     object.sort((a, b) => (a.Genre > b.Genre) ? 1 : ((b.Genre > a.Genre) ? -1 : 0));
+    
+    
     let tab = section.querySelectorAll('div');
         for ( let element of tab){
             element.remove();
